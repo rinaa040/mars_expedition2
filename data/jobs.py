@@ -13,9 +13,7 @@ class Jobs(SqlAlchemyBase):
     team_leader = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"))
     job = sqlalchemy.Column(sqlalchemy.String)
     work_size = sqlalchemy.Column(sqlalchemy.Integer)
-    collaborations = sqlalchemy.Column(sqlalchemy.ARRAY)
-    start_date = sqlalchemy.Column(sqlalchemy.DateTime)
-    end_date = sqlalchemy.Column(sqlalchemy.DateTime)
+    collaborations = sqlalchemy.Column(sqlalchemy.String)
     is_finished = sqlalchemy.Column(sqlalchemy.Boolean)
 
     def __repr__(self):

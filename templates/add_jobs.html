@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Добавление работы</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.team_leader.label }}<br>
+            {{ form.team_leader(class="form-control", type="Integer") }}<br>
+            {% for error in form.team_leader.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.job.label }}<br>
+            {{ form.job(class="form-control", type="string") }}<br>
+            {% for error in form.job.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.work_size.label }}<br>
+            {{ form.work_size(class="form-control", type="Integer") }}<br>
+            {% for error in form.work_size.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.collaborations.label }}<br>
+            {{ form.collaborations(class="form-control", type="string") }}<br>
+            {% for error in form.collaborations.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>{{ form.is_finished() }} {{ form.is_finished.label }}</p>
+        <div>{{ message }}</div>
+        {% if current_user.is_authenticated %}
+        <a href="news" class="btn btn-secondary">Добавить новость</a>
+        {% endif %}
+    </form>
+{% endblock %}
